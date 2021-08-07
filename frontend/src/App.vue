@@ -4,6 +4,7 @@
       <el-col :span="20" class="menuItemWrapper">
         <el-menu-item index="home" :route="{ name:'home' }">Home</el-menu-item>
         <el-menu-item index="random" :route="{ name:'random' }">Random</el-menu-item>
+        <el-menu-item index="example" :route="{ name:'example' }">Example</el-menu-item>
       </el-col>
     </el-menu>
     <router-view />
