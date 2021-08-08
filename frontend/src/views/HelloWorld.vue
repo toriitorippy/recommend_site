@@ -10,7 +10,7 @@
       <el-button plain type="primary" round v-on:click="begin()">Start</el-button>
     </div>
     <div class="box"></div>
-    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 30%"  />
+    <img class="img" src="../assets/images/undraw_our_neighborhood_ya1h.png" style="width: 30%"  />
   </div>
 </template>
 
