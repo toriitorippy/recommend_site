@@ -1,19 +1,20 @@
 <template>
 <!--参考サイト：http://work2work.work/diagnosis/-->
     <div id="Diagnosis" class="Diagnosis">
+    <h2 class="team text-left">KOKOSUMU</h2>
         <div class="menubox" v-bind:class="nemu_active">
             <transition-group name="fade" transition-mode="out-in">
                 <div class="menuItem" key="1" v-if="current_num==0">
                 <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q1.朝はパン？それともご飯？</span>
+                      <span class="txt">Q1.通勤や通学に便利であることが大切だ</span>
                     </div>
                     <div class="menuRadio">
                       <label>
-                        <el-button plain v-on:click="check(0,0)">パン</el-button>
+                        <el-button plain v-on:click="check(0,0)">はい</el-button>
                       </label>
                       <label>
-                        <el-button plain v-on:click="check(0,1)">ごはん</el-button>
+                        <el-button plain v-on:click="check(0,1)">いいえ</el-button>
                       </label>
                     </div>
                     <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
@@ -23,151 +24,71 @@
                 <div class="menuItem" key="2" v-if="current_num==1">
                   <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q2.間食はしますか？</span>
+                      <span class="txt">Q2.活気あふれる都市部で暮らしたい？</span>
                     </div>
                     <div class="menuRadio">
                       <label>
-                        <el-button plain v-on:click="check(1,0)">食べる</el-button>
+                        <el-button plain v-on:click="check(1,0)">はい</el-button>
                       </label>
                       <label>
-                        <el-button plain v-on:click="check(1,1)">食べない</el-button>
+                        <el-button plain v-on:click="check(1,1)">いいえ</el-button>
                       </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                    <img class="img" src="../assets/images/undraw_Partying_re_at7f.png" style="width: 40%"  />
                   </el-card>
                 </div>
 
                 <div class="menuItem" key="3" v-if="current_num==2">
                   <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q3.昼食はどちらを食べたいですか？</span>
+                      <span class="txt">Q3.家族と過ごす時間をなるべく多くしたい？</span>
                     </div>
                     <div class="menuRadio">
                         <label>
-                          <el-button plain v-on:click="check(2,0)">グミ</el-button>
+                          <el-button plain v-on:click="check(2,0)">はい</el-button>
                         </label>
                         <label>
-                          <el-button plain v-on:click="check(2,1)">ハンバーグ</el-button>
+                          <el-button plain v-on:click="check(2,1)">いいえ</el-button>
                         </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                    <img class="img" src="../assets/images/undraw_Chilling_re_4iq9.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
                 <div class="menuItem" key="4" v-if="current_num==3">
                   <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q4.晩ごはんは何が食べたいですか？</span>
+                      <span class="txt">Q4.生まれ育った地に住み続けたい？</span>
                     </div>
                     <div class="menuRadio">
                         <label>
-                          <el-button plain v-on:click="check(3,0)">ステーキ</el-button>
+                          <el-button plain v-on:click="check(3,0)">はい</el-button>
                         </label>
                         <label>
-                          <el-button plain v-on:click="check(3,1)">ハンバーグ</el-button>
+                          <el-button plain v-on:click="check(3,1)">いいえ</el-button>
                         </label>
                         <label>
-                          <el-button plain v-on:click="check(3,2)">カレー</el-button>
+                          <el-button plain v-on:click="check(3,2)">どちらでもいい</el-button>
                         </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                    <img class="img" src="../assets/images/undraw_web_shopping_re_owap.png" style="width: 50%"  />
                   </el-card>
                 </div>
             </transition-group>
         </div>
+
         <div class="result" v-bind:class="result_active">
-        <div class="result_inner">
-            <transition-group name="fade">
-            <div class="result_contents" key="1" v-if="result_num==1">
-            診断結果 肉塊です
-        </div>
-        <div class="result_contents" key="2" v-if="result_num==2">
-            診断結果 FATです
-        </div>
-        <div class="result_contents" key="3" v-if="result_num==3">
-            診断結果 塊です
-        </div>
-        <div class="result_contents" key="4" v-if="result_num==4">
-            診断結果 まあまあのポッチャリさんです
-        </div>
-        <div class="result_contents" key="5" v-if="result_num==5">
-            診断結果 糖質改善ポッチャリです
-        </div>
-        <div class="result_contents" key="6" v-if="result_num==6">
-            診断結果 甘党ぽっちゃりです
-        </div>
-        <div class="result_contents" key="7" v-if="result_num==7">
-            診断結果 健康体です
-        </div>
-        <div class="result_contents" key="8" v-if="result_num==8">
-            診断結果 大学生並
-        </div>
-        <div class="result_contents" key="9" v-if="result_num==9">
-            診断結果 大学生並
-        </div>
-        <div class="result_contents" key="10" v-if="result_num==10">
-            診断結果 普通です
-        </div>
-        <div class="result_contents" key="11" v-if="result_num==11">
-            診断結果 普通です
-        </div>
-        <div class="result_contents" key="12" v-if="result_num==12">
-            診断結果 小動物？
-        </div>
-        <div class="result_contents" key="13" v-if="result_num==13">
-            診断結果 ポッチャリさんです
-        </div>
-        <div class="result_contents" key="14" v-if="result_num==14">
-            診断結果 普通です
-        </div>
-        <div class="result_contents" key="15" v-if="result_num==15">
-            診断結果 なぜ最後ナッツ入れた？
-        </div>
-        <div class="result_contents" key="16" v-if="result_num==16">
-            診断結果 なぜグミいれた？
-        </div>
-        <div class="result_contents" key="17" v-if="result_num==17">
-            診断結果 なぜグミいれた？
-        </div>
-        <div class="result_contents" key="18" v-if="result_num==18">
-            診断結果 夜食べない派？
-        </div>
-        <div class="result_contents" key="19" v-if="result_num==19">
-            診断結果 十分です
-        </div>
-        <div class="result_contents" key="20" v-if="result_num==20">
-            診断結果 結構余裕ありますね
-        </div>
-        <div class="result_contents" key="21" v-if="result_num==21">
-            診断結果 なぜ最後ナッツ？
-        </div>
-        <div class="result_contents" key="22" v-if="result_num==22">
-            診断結果 けっこうええもん食うてる
-        </div>
-        <div class="result_contents" key="23" v-if="result_num==23">
-            診断結果 大丈夫です
-        </div>
-        <div class="result_contents" key="24" v-if="result_num==24">
-            診断結果 バイトしよか
-        </div>
-            </transition-group>
-        </div>
-        </div>
-        <div class="detail">
-            {{result_txt}}
+          <div class="box"></div>
+            <div class="menuttl">
+              <span class="txt">あなたの住みやすい街は...</span>
+            </div>
+            <h1>中央区</h1>
+            <img class="img" src="../assets/images/undraw_Ordinary_day_re_v5hy.png" style="width: 40%"  />
         </div>
     </div>
 </template>
 
 <script>
-var queData = [
-  ['パン','ごはん'],
-  ['食べる','食べない'],
-  ['ハンバーグ','グミ'],
-  ['ステーキ','カレーライス','ナッツ']
-]
-
-
 export default {
   name: 'Diagnosis',
   props: {
@@ -176,47 +97,13 @@ export default {
   data() {
     return {
         answer:[],
-        sex:'',
         current_num:0,
-        toilet:'',
-        amount:'',
-        demand:'',
-        result_active:'',
-        nemu_active:'',
-        result_txt:'',
-        result:{
-        '0000':1,
-        '0001':2,
-        '0002':3,
-        '0010':4,
-        '0011':5,
-        '0012':6,
-        '0100':7,
-        '0101':8,
-        '0102':9,
-        '0110':10,
-        '0111':11,
-        '0112':12,
-        '1000':13,
-        '1001':14,
-        '1002':15,
-        '1010':16,
-        '1011':17,
-        '1012':18,
-        '1100':19,
-        '1101':20,
-        '1102':21,
-        '1110':22,
-        '1111':23,
-        '1112':24
-        },
-        result_num:'',
+        nemu_active: '',
     };
   },
   watch: {
       result_num:function(n,o){
-          print(n,o)
-        this.result_txt = queData[0][this.sex]+' >> ' + queData[1][this.toilet] +' >> ' +queData[2][this.amount] +' >> ' +queData[3][this.demand] + ' を選択した時のコンテンツ'
+        print(n,o)
       }
   },
   created:function(){
@@ -365,4 +252,23 @@ body{
 .fade-enter, .fade-leave {
   opacity: 0
 }
+
+h1 {
+  margin: 40px 0 0;
+  color: #409EFF;
+  font-family: "PingFang SC";
+  font-size: 200px;
+}
+
+.team{
+  margin-top: 20px;
+  margin-left:20px;
+  color: #409EFF;
+  font-family: "PingFang SC";
+}
+
+.box {
+  height:50px;
+}
+
 </style>
