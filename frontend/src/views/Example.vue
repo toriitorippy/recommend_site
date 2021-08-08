@@ -1,22 +1,77 @@
 <template>
+<!--参考サイト：http://work2work.work/diagnosis/-->
     <div id="Diagnosis" class="Diagnosis">
         <div class="menubox" v-bind:class="nemu_active">
             <transition-group name="fade" transition-mode="out-in">
-                <div class="menuItem" key="1" v-if="current_num==0"><div class="menuttl">
-                質問1<span class="txt">朝はパン？それともご飯？</span>
+                <div class="menuItem" key="1" v-if="current_num==0">
+                <el-card class="box-card">
+                    <div class="menuttl">
+                      <span class="txt">Q1.朝はパン？それともご飯？</span>
+                    </div>
+                    <div class="menuRadio">
+                      <label>
+                        <el-button plain v-on:click="check(0,0)">パン</el-button>
+                      </label>
+                      <label>
+                        <el-button plain v-on:click="check(0,1)">ごはん</el-button>
+                      </label>
+                    </div>
+                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                </el-card>
                 </div>
-                <div class="menuRadio"><label><input name="sex" type="radio" value="0" v-on:change="check" v-model="sex"><span class="btn"></span><span class="btn-txt">パン</span></label><label><input name="sex" type="radio" value="1" v-on:change="check" v-model="sex"><span class="btn"></span><span class="btn-txt">ごはん</span></label></div>
+
+                <div class="menuItem" key="2" v-if="current_num==1">
+                  <el-card class="box-card">
+                    <div class="menuttl">
+                      <span class="txt">Q2.間食はしますか？</span>
+                    </div>
+                    <div class="menuRadio">
+                      <label>
+                        <el-button plain v-on:click="check(1,0)">食べる</el-button>
+                      </label>
+                      <label>
+                        <el-button plain v-on:click="check(1,1)">食べない</el-button>
+                      </label>
+                    </div>
+                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
                 </div>
-                <div class="menuItem" key="2" v-if="current_num==1"><div class="menuttl">
-                質問2<span class="txt">間食はしますか？</span>
-                </div><div class="menuRadio"><label><input name="toilet" type="radio" value="0" v-on:change="check" v-model="toilet"><span class="btn"></span><span class="btn-txt">食べる</span></label><label><input name="toilet" type="radio" value="1" v-on:change="check" v-model="toilet"><span class="btn"></span><span class="btn-txt">食べない</span></label></div></div>
-                <div class="menuItem" key="3" v-if="current_num==2"><div class="menuttl">
-                質問3<span class="txt">昼食はどちらを食べたいですか？</span>
+
+                <div class="menuItem" key="3" v-if="current_num==2">
+                  <el-card class="box-card">
+                    <div class="menuttl">
+                      <span class="txt">Q3.昼食はどちらを食べたいですか？</span>
+                    </div>
+                    <div class="menuRadio">
+                        <label>
+                          <el-button plain v-on:click="check(2,0)">グミ</el-button>
+                        </label>
+                        <label>
+                          <el-button plain v-on:click="check(2,1)">ハンバーグ</el-button>
+                        </label>
+                    </div>
+                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
                 </div>
-                <div class="menuRadio"><label><input name="amount" type="radio" value="0" v-on:change="check" v-model="amount"><span class="btn"></span><span class="btn-txt">ハンバーグ</span></label><label><input name="amount" type="radio" value="1" v-on:change="check" v-model="amount"><span class="btn"></span><span class="btn-txt">グミ</span></label></div></div>
-                <div class="menuItem" key="4" v-if="current_num==3"><div class="menuttl">
-                質問4<span class="txt">晩ごはんは何が食べたいですか？</span>
-                </div><div class="menuRadio"><label><input name="demand" type="radio" value="0" v-on:change="check" v-model="demand"><span class="btn"></span><span class="btn-txt">ステーキ</span></label><label><input name="demand" type="radio" value="1" v-on:change="check" v-model="demand"><span class="btn"></span><span class="btn-txt">カレーライス</span></label><label><input name="demand" type="radio" value="2" v-on:change="check" v-model="demand"><span class="btn"></span><span class="btn-txt">ナッツ</span></label></div>
+
+                <div class="menuItem" key="4" v-if="current_num==3">
+                  <el-card class="box-card">
+                    <div class="menuttl">
+                      <span class="txt">Q4.晩ごはんは何が食べたいですか？</span>
+                    </div>
+                    <div class="menuRadio">
+                        <label>
+                          <el-button plain v-on:click="check(3,0)">ステーキ</el-button>
+                        </label>
+                        <label>
+                          <el-button plain v-on:click="check(3,1)">ハンバーグ</el-button>
+                        </label>
+                        <label>
+                          <el-button plain v-on:click="check(3,2)">カレー</el-button>
+                        </label>
+                    </div>
+                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
                 </div>
             </transition-group>
         </div>
@@ -171,14 +226,12 @@ export default {
                          },400);
   },
   methods:{
-    check:function(){
-      this.answer[0] = this.sex;
-      this.answer[1] = this.toilet;
-      this.answer[2] = this.amount;
-      this.answer[3] = this.demand;
-      this.current_num = this.answer.indexOf('');
-      
-      if(this.answer.indexOf('')==-1){
+    check (id,value) {
+      console.log(value)
+      this.answer[id] = value;
+      this.current_num = id + 1;
+      console.log(this.answer)
+      if(this.current_num==4){
         this.nemu_active = '__hide';
         this.result_active = '__active';
         this.result_num = this.result[this.answer.join('')];
