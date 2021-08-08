@@ -84,6 +84,8 @@
             </div>
             <h1>中央区</h1>
             <img class="img" src="../assets/images/undraw_Ordinary_day_re_v5hy.png" style="width: 40%"  />
+            <div class="box"></div>
+            <el-button plain type="primary" round v-on:click="restart()">戻る</el-button>
         </div>
     </div>
 </template>
@@ -123,6 +125,11 @@ export default {
         this.result_active = '__active';
         this.result_num = this.result[this.answer.join('')];
       }
+    },
+    restart () {
+      this.$router.push({
+        name: 'home',
+      })
     }
   }
 }
