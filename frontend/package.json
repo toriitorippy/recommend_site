@@ -1,11 +1,14 @@
 {
   "name": "app",
+  "description": "Github Pages Sample.",
+  "main": "main.js",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d src"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -13,7 +16,8 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.6"
+    "vue-router": "^3.4.6",
+    "gh-pages": "^1.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
