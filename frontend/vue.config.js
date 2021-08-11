@@ -5,5 +5,8 @@ module.exports = {
       host: '0.0.0.0',
       disableHostCheck: true,
     },
+    assetsDir: "",
+    publicPath: '/recommend_site', 
+    outputDir: "docs"
   };
   
