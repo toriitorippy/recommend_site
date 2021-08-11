@@ -3,7 +3,7 @@
     <div id="Diagnosis" class="Diagnosis">
     <h2 class="team text-left">KOKOSUMU</h2>
         <div class="menubox" v-bind:class="nemu_active">
-            <transition-group name="fade" transition-mode="out-in">
+            <div>
                 <div class="menuItem" key="1" v-if="current_num==0">
                 <el-card class="box-card">
                     <div class="menuttl">
@@ -74,7 +74,7 @@
                     <img class="img" src="../assets/images/undraw_web_shopping_re_owap.png" style="width: 50%"  />
                   </el-card>
                 </div>
-            </transition-group>
+            </div>
         </div>
 
         <div class="result" v-bind:class="result_active">
