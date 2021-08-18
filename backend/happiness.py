@@ -1,5 +1,5 @@
-import optuna.integration.lightgbm as lgb
 import pandas as pd
+import lightgbm as lgb 
 
 
 # 回答の配列から地域の幸福度を計算
