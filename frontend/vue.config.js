@@ -7,6 +7,6 @@ module.exports = {
     },
     assetsDir: "",
     publicPath: '/recommend_site', 
-    outputDir: "docs"
+    outputDir: "docs",
   };
   

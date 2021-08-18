@@ -7,14 +7,19 @@
                 <div class="menuItem" key="1" v-if="current_num==0">
                 <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q1.通勤や通学に便利であることが大切だ</span>
+                      <span class="txt">Q1.通勤通学エリアはどこですか？</span>
                     </div>
                     <div class="menuRadio">
+                    <el-select v-model="answer[0]" placeholder="Select">
+                      <el-option
+                        v-for="item in options[0]"
+                        :key="item"
+                        :label="item"
+                        :value="item">
+                      </el-option>
+                    </el-select>
                       <label>
-                        <el-button plain v-on:click="check(0,0)">はい</el-button>
-                      </label>
-                      <label>
-                        <el-button plain v-on:click="check(0,1)">いいえ</el-button>
+                        <el-button plain v-on:click="next()">決定</el-button>
                       </label>
                     </div>
                     <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
@@ -22,58 +27,203 @@
                 </div>
 
                 <div class="menuItem" key="2" v-if="current_num==1">
-                  <el-card class="box-card">
+                <el-card class="box-card">
                     <div class="menuttl">
-                      <span class="txt">Q2.活気あふれる都市部で暮らしたい？</span>
+                      <span class="txt">Q2.世帯年収はいくらですか？</span>
                     </div>
                     <div class="menuRadio">
+                    <el-select v-model="answer[1]" placeholder="Select">
+                      <el-option
+                        v-for="item in options[1]"
+                        :key="item"
+                        :label="item"
+                        :value="item">
+                      </el-option>
+                    </el-select>
                       <label>
-                        <el-button plain v-on:click="check(1,0)">はい</el-button>
-                      </label>
-                      <label>
-                        <el-button plain v-on:click="check(1,1)">いいえ</el-button>
+                        <el-button plain v-on:click="next()">決定</el-button>
                       </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Partying_re_at7f.png" style="width: 40%"  />
-                  </el-card>
+                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                </el-card>
                 </div>
 
                 <div class="menuItem" key="3" v-if="current_num==2">
                   <el-card class="box-card">
-                    <div class="menuttl">
-                      <span class="txt">Q3.家族と過ごす時間をなるべく多くしたい？</span>
-                    </div>
-                    <div class="menuRadio">
+                      <div class="menuttl">
+                        <span class="txt">Q3.ご職業はなんですか？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[2]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[2]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
                         <label>
-                          <el-button plain v-on:click="check(2,0)">はい</el-button>
+                          <el-button plain v-on:click="next()">決定</el-button>
                         </label>
-                        <label>
-                          <el-button plain v-on:click="check(2,1)">いいえ</el-button>
-                        </label>
-                    </div>
-                    <img class="img" src="../assets/images/undraw_Chilling_re_4iq9.png" style="width: 50%"  />
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
                 <div class="menuItem" key="4" v-if="current_num==3">
                   <el-card class="box-card">
-                    <div class="menuttl">
-                      <span class="txt">Q4.生まれ育った地に住み続けたい？</span>
-                    </div>
-                    <div class="menuRadio">
+                      <div class="menuttl">
+                        <span class="txt">Q4.希望の住宅の大きさは？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[3]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[3]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
                         <label>
-                          <el-button plain v-on:click="check(3,0)">はい</el-button>
+                          <el-button plain v-on:click="next()">決定</el-button>
                         </label>
-                        <label>
-                          <el-button plain v-on:click="check(3,1)">いいえ</el-button>
-                        </label>
-                        <label>
-                          <el-button plain v-on:click="check(3,2)">どちらでもいい</el-button>
-                        </label>
-                    </div>
-                    <img class="img" src="../assets/images/undraw_web_shopping_re_owap.png" style="width: 50%"  />
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
                   </el-card>
                 </div>
+
+                <div class="menuItem" key="5" v-if="current_num==4">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q5.所有資産は？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[4]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[4]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="6" v-if="current_num==5">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q6.個人年収は？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[5]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[5]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="7" v-if="current_num==6">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q7.お子さんはいますか？</span>
+                      </div>
+                      <div class="menuRadio">
+                          <el-checkbox-group v-model="answer[6]">
+                            <el-checkbox 
+                              v-for="item in options[6]"
+                                :key = "item"
+                                :label="item"
+                                :value="item">
+                            </el-checkbox>
+                          </el-checkbox-group>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="8" v-if="current_num==7">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q8.家族と過ごす時間をなるべく多くしたい？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[7]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[7]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="9" v-if="current_num==8">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q9.休みの日には家族そろって出かける？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[8]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[8]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="10" v-if="current_num==9">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q10.休日にはそろって出かけるような、仲の良い家族が望ましい？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[9]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[9]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
             </div>
         </div>
 
@@ -101,6 +251,33 @@ export default {
         answer:[],
         current_num:0,
         nemu_active: '',
+        options:
+        [["千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区",
+          "杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区","その他の東京都（市町村部）","横浜市","川崎市","その他の神奈川県",
+          "千葉市","その他の千葉県","さいたま市","その他の埼玉県","水戸市","その他の茨城県","宇都宮市","その他の栃木県","前橋市","高崎市","その他の群馬県","不明"],
+          ["200万円未満(150)","200～300万円未満(250)","300～400万円未満(350)","400～500万円未満(450)","500～600万円未満(550)","600～700万円未満(650)",
+          "700～800万円未満(750)","800～900万円未満(850)","900～1,000万円未満(950)","1,000～1,200万円未満(1100)","1,200～1,500万円未満(1350)",
+          "1,500～2,000万円未満(1750)","2,000～3,000万円未満(2500)","3,000万円以上(3000)","収入はない(0)","無回答・不明"],
+          ["事務職","技術職","サービス職・販売職","労務職","管理職","役員・理事","専門職・自由業","商工・自営業","農林水産業","高校生","大学生・大学院生",
+          "専業主婦・主夫","年金受給者","無職","その他","不明"],
+          ["15坪未満（約50m2未満）","15～20坪未満（約50～65m2未満）","20～25坪未満（約65～80m2未満）","25～30坪未満（約80～100m2未満）",
+          "30～35坪未満（約100～115m2未満）","35～40坪未満（約115～130m2未満）","40～45坪未満（約130～150m2未満）","45～50坪未満（約150～165m2未満）",
+          "50坪以上（約165m2以上）","分からない","不明"],
+          ["100万円未満(50)","100～400万円未満(250)","400～800万円未満(600)","800～1,000万円未満(900)","1,000～1,500万円未満(1250)",
+          "1,500～2,000万円未満(1750)","2,000～3,000万円未満(2500)","3,000～5,000万円未満(4000)","5,000～7,000万円未満(6000)",
+          "7,000～1億円未満(8500)","1億円以上(10000)","無回答・不明"],
+          ["200万円未満(150)","200～300万円未満(250)","300～400万円未満(350)","400～500万円未満(450)","500～600万円未満(550)","600～700万円未満(650)",
+          "700～800万円未満(750)","800～900万円未満(850)","900～1,000万円未満(950)","1,000～1,200万円未満(1100)","1,200～1,500万円未満(1350)",
+          "1,500～2,000万円未満(1750)","2,000～3,000万円未満(2500)","3,000万円以上(3000)","収入はない(0)","無回答・不明"],
+          ["0～3歳児有","0歳～未就学児有","小学生以下の子ども有","小学生の子ども有","中・高校生の子ども有",
+          "大学生・専門学校生・大学院生の子ども有","未婚の社会人・無職・既婚の子ども有","これらの人はいない","不明"],
+          ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
+          ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
+          ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
+
+
+
+        ]
     };
   },
   watch: {
@@ -113,6 +290,9 @@ export default {
     setTimeout(function(){
       _t.nemu_active = '__active';
                          },400);
+    const outputElement = this.getCSV();
+    console.log("a")
+    console.log(outputElement)
   },
   methods:{
     check (id,value) {
@@ -126,11 +306,16 @@ export default {
         this.result_num = this.result[this.answer.join('')];
       }
     },
+    next () {
+      this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num])
+      this.current_num += 1
+      console.log(this.answer)
+    },
     restart () {
       this.$router.push({
         name: 'home',
       })
-    }
+    },
   }
 }
 </script>
