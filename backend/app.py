@@ -1,7 +1,9 @@
-from flask import Flask, render_template, jsonify, request
-from flask_cors import CORS
 import random
-from happiness import *
+
+from flask import Flask, jsonify, render_template, request
+from flask_cors import CORS
+
+from happiness import calc_happiness
 from recommendation import *
 
 app = Flask(__name__, static_folder="./dist/static", template_folder="./dist")
@@ -27,9 +29,7 @@ def get_recommend():
     # data形式は以下
     # {answer:["1","3","5","9",.....,"2"]}
 
-    #以下misyashitaの関数
-    answer = [int(x) for x in data["answer"]] #stringからintへ変換
-    happiness = cal_happiness(answer) # 地域-幸福度配列を返す
+    happiness = calc_happiness(data) # 地域-幸福度配列を返す
     recommendation = cal_recommendation(happiness) #幸福度が高い地域を降順に出力
     response = {}
     for i in range(len(recommendation)):
