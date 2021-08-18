@@ -30,7 +30,8 @@ def get_recommend():
     # {answer:["1","3","5","9",.....,"2"]}
 
     happiness = calc_happiness(data) # 地域-幸福度配列を返す
-    recommendation = cal_recommendation(happiness) #幸福度が高い地域を降順に出力
+    recommend_area = recommendArea(happiness, data)
+    recommendation = recommend_area.calc_recommendation() #幸福度が高い地域を降順に出力
     response = {}
     for i in range(len(recommendation)):
         response[i] = {
