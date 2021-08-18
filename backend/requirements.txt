@@ -1,3 +1,5 @@
 Flask
 Flask-cors
 Flask_restful
+pandas
+lightgbm
