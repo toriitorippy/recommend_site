@@ -6,7 +6,7 @@ class recommendArea:
         self.rent = pd.read_csv('data/rent.csv')
         self.happiness = pd.DataFrame({'幸福度': happiness})
         self.rent_lim = float(data["answer"][-2])
-        self.layout = int(data["answer"][-1])
+        self.layout = int(data["answer"][-1])+1
 
     def calc_recommendation(self):
         # 「空室率 * 幸福度」により'指標'を作成
