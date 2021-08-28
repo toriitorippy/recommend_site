@@ -6,7 +6,7 @@ class recommendArea:
         self.rent = pd.read_csv('data/rent.csv')
         self.happiness = pd.DataFrame({'幸福度': happiness})
         self.rent_lim = float(data["answer"][-2])
-        self.layout = str(data["answer"][-1])
+        self.layout = int(data["answer"][-1])
 
     def calc_recommendation(self):
         # 「空室率 * 幸福度」により'指標'を作成
@@ -16,12 +16,12 @@ class recommendArea:
         # 必要なDataFrameを結合
         data = pd.concat([self.vacancy_rate['区'], 
                           self.vacancy_rate['全住宅空室率'], 
-                          self.rent[self.layout], 
+                          self.rent.iloc[:, self.layout], 
                           self.happiness,
                           indicator], axis=1)
         
         # 家賃の上限額でエリアを絞った上で,'指標'を基準に降順にソート
-        data = data[data[self.layout] <= self.rent_lim].sort_values('指標', ascending=False)
+        data = data[data.iloc[:, 2] <= self.rent_lim].sort_values('指標', ascending=False)
 
         # 上位3つの区を抽出
         recommend_area = data['区'][:3].values
