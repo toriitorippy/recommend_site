@@ -268,7 +268,9 @@
             <div class="menuttl">
               <span class="txt">あなたの住みやすい街は...</span>
             </div>
-            <h1>中央区</h1>
+            <h1>{{result1}}</h1>
+            <h2>{{result2}}</h2>
+            <h3>{{result3}}</h3>
             <img class="img" src="../assets/images/undraw_Ordinary_day_re_v5hy.png" style="width: 40%"  />
             <div class="box"></div>
             <el-button plain type="primary" round v-on:click="restart()">戻る</el-button>
@@ -287,6 +289,10 @@ export default {
   data() {
     return {
         answer:[],
+        result:{0:{area: "港区"},1:{area: "港区"},2:{area: "港区"}},
+        result1: "",
+        result2: "",
+        result3: "",
         current_num:0,
         nemu_active: '',
         result_active: '__hide',
@@ -345,18 +351,35 @@ export default {
     // },
     next () {
       if (!(this.current_num == 10)) {
+        this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num]) + 1
+      }
+      if (this.current_num == 12) {
         this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num])
       }
       this.current_num += 1
       console.log(this.answer)
       if(this.current_num==12){
-        this.nemu_active = '__hide';
-        this.result_active = '__active';
         // this.result_num = this.result[this.answer.join('')];
         axios.post("http://localhost:5000/get_recommend", {"answer": this.answer}
           ).then(res=> {
+            console.log(res)
+            this.nemu_active = '__hide';
+            this.result_active = '__active';
             const data = res.data;
             console.log(data)
+            this.result = data
+            if (data[0]) {
+              this.result1 = "第1位 " + data[0]['area']
+            }
+            if (data[1]) {
+              this.result2 = "第2位 " +  data[1]['area']
+            }
+            if (data[2]) {
+              this.result3 = "第3位 " + data[2]['area']
+            }
+            if (!data[0]) {
+              this.result1 = "おすすめの地域はありません"
+            }
         })
       }
     },
