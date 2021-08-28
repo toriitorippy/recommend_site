@@ -142,14 +142,14 @@
                         <span class="txt">Q7.お子さんはいますか？</span>
                       </div>
                       <div class="menuRadio">
-                          <el-checkbox-group v-model="answer[6]">
-                            <el-checkbox 
+                          <el-select v-model="answer[6]" placeholder="Select">
+                            <el-option
                               v-for="item in options[6]"
                                 :key = "item"
                                 :label="item"
                                 :value="item">
-                            </el-checkbox>
-                          </el-checkbox-group>
+                            </el-option>
+                          </el-select>
                         <label>
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
@@ -224,6 +224,42 @@
                   </el-card>
                 </div>
 
+                <div class="menuItem" key="11" v-if="current_num==10">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q11.希望の家賃額は？</span>
+                      </div>
+                      <div class="menuRadio">
+                        <el-input placeholder="万円" v-model.number="answer[10]" type="number" style="width: 200px"  ></el-input>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
+
+                <div class="menuItem" key="12" v-if="current_num==11">
+                  <el-card class="box-card">
+                      <div class="menuttl">
+                        <span class="txt">Q12.希望の間取りは？</span>
+                      </div>
+                      <div class="menuRadio">
+                      <el-select v-model="answer[11]" placeholder="Select">
+                        <el-option
+                          v-for="item in options[11]"
+                          :key="item"
+                          :label="item"
+                          :value="item">
+                        </el-option>
+                      </el-select>
+                        <label>
+                          <el-button plain v-on:click="next()">決定</el-button>
+                        </label>
+                      </div>
+                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                  </el-card>
+                </div>
             </div>
         </div>
 
@@ -241,6 +277,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Diagnosis',
   props: {
@@ -251,6 +289,7 @@ export default {
         answer:[],
         current_num:0,
         nemu_active: '',
+        result_active: '__hide',
         options:
         [["千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区",
           "杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区","その他の東京都（市町村部）","横浜市","川崎市","その他の神奈川県",
@@ -274,9 +313,8 @@ export default {
           ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
           ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
           ["非常にあてはまる","ややあてはまる","あまりあてはまらない","全くあてはまらない","不明"],
-
-
-
+          [],
+          ["ワンルーム","1K/1DK","1LDK/2K/2DK","2LDK/3K/3DK","3LDK/4K"],
         ]
     };
   },
@@ -290,26 +328,37 @@ export default {
     setTimeout(function(){
       _t.nemu_active = '__active';
                          },400);
-    const outputElement = this.getCSV();
-    console.log("a")
-    console.log(outputElement)
+    // const outputElement = this.getCSV();
+    // console.log("a")
   },
   methods:{
-    check (id,value) {
-      console.log(value)
-      this.answer[id] = value;
-      this.current_num = id + 1;
-      console.log(this.answer)
-      if(this.current_num==4){
-        this.nemu_active = '__hide';
-        this.result_active = '__active';
-        this.result_num = this.result[this.answer.join('')];
-      }
-    },
+    // check (id,value) {
+    //   console.log(value)
+    //   this.answer[id] = value;
+    //   this.current_num = id + 1;
+    //   console.log(this.answer)
+    //   if(this.current_num==10){
+    //     this.nemu_active = '__hide';
+    //     this.result_active = '__active';
+    //     // this.result_num = this.result[this.answer.join('')];
+    //   }
+    // },
     next () {
-      this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num])
+      if (!(this.current_num == 10)) {
+        this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num])
+      }
       this.current_num += 1
       console.log(this.answer)
+      if(this.current_num==12){
+        this.nemu_active = '__hide';
+        this.result_active = '__active';
+        // this.result_num = this.result[this.answer.join('')];
+        axios.post("http://localhost:5000/get_recommend", {"answer": this.answer}
+          ).then(res=> {
+            const data = res.data;
+            console.log(data)
+        })
+      }
     },
     restart () {
       this.$router.push({
@@ -433,6 +482,7 @@ body{
   .menuRadio{
     margin-top: 40px;
     min-width:100%;
+    max-width:10px;
    padding:10px;
     font-size:20px;
   }
@@ -461,6 +511,10 @@ h1 {
 
 .box {
   height:50px;
+}
+
+.money-input {
+    width: 100px;
 }
 
 </style>
