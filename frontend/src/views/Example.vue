@@ -22,7 +22,7 @@
                         <el-button plain v-on:click="next()">決定</el-button>
                       </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                    <img class="img" src="../assets/images/undraw_city_driver_re_0x5e.png" style="width: 50%"  />
                 </el-card>
                 </div>
 
@@ -44,7 +44,7 @@
                         <el-button plain v-on:click="next()">決定</el-button>
                       </label>
                     </div>
-                    <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                    <img class="img" src="../assets/images/undraw_Savings_re_eq4w.png" style="width: 50%"  />
                 </el-card>
                 </div>
 
@@ -66,7 +66,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_Updated_resume_re_q1or.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -88,7 +88,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_houses3_xwf7.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -110,7 +110,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_Vault_re_s4my.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -132,7 +132,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_personal_finance_tqcd.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -154,7 +154,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_doll_play_evbw.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -176,7 +176,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_Chilling_re_4iq9.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -198,7 +198,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_Outdoor_adventure_re_j3b7.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -220,7 +220,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_fatherhood_7i19.png" style="width: 50%"  />
                   </el-card>
                 </div>
 
@@ -257,7 +257,7 @@
                           <el-button plain v-on:click="next()">決定</el-button>
                         </label>
                       </div>
-                      <img class="img" src="../assets/images/undraw_Site_stats_re_ejgy.png" style="width: 50%"  />
+                      <img class="img" src="../assets/images/undraw_select_house_qbag.png" style="width: 50%"  />
                   </el-card>
                 </div>
             </div>
