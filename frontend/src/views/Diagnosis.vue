@@ -296,7 +296,7 @@ export default {
         current_num:0,
         nemu_active: '',
         result_active: '__hide',
-        options:
+        options: // 選択肢を列挙
         [["千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区",
           "杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区","その他の東京都（市町村部）","横浜市","川崎市","その他の神奈川県",
           "千葉市","その他の千葉県","さいたま市","その他の埼玉県","水戸市","その他の茨城県","宇都宮市","その他の栃木県","前橋市","高崎市","その他の群馬県","不明"],
@@ -334,32 +334,15 @@ export default {
     setTimeout(function(){
       _t.nemu_active = '__active';
                          },400);
-    // const outputElement = this.getCSV();
-    // console.log("a")
   },
   methods:{
-    // check (id,value) {
-    //   console.log(value)
-    //   this.answer[id] = value;
-    //   this.current_num = id + 1;
-    //   console.log(this.answer)
-    //   if(this.current_num==10){
-    //     this.nemu_active = '__hide';
-    //     this.result_active = '__active';
-    //     // this.result_num = this.result[this.answer.join('')];
-    //   }
-    // },
     next () {
-      if (!(this.current_num == 10)) {
+      if (!(this.current_num == 10)) { //10番目の質問は数値なのでスキップ
         this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num]) + 1
-      }
-      if (this.current_num == 12) {
-        this.answer[this.current_num] = this.options[this.current_num].indexOf(this.answer[this.current_num])
       }
       this.current_num += 1
       console.log(this.answer)
       if(this.current_num==12){
-        // this.result_num = this.result[this.answer.join('')];
         axios.post("http://localhost:5000/get_recommend", {"answer": this.answer}
           ).then(res=> {
             console.log(res)
@@ -378,7 +361,7 @@ export default {
               this.result3 = "第3位 " + data[2]['area']
             }
             if (!data[0]) {
-              this.result1 = "おすすめの地域はありません"
+              this.result1 = "おすすめの地域はありません" //データがなかった場合
             }
         })
       }

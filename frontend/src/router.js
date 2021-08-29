@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from './views/HelloWorld.vue'
+import Home from './views/Home.vue'
 import Random from './views/Random.vue'
-import Example from './views/Example.vue'
+import Diagnosis from './views/Diagnosis.vue'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: HelloWorld
+      component: Home
     },
     {
       path: '/random',
@@ -21,9 +21,9 @@ export default new Router({
       component: Random
     },
     {
-      path: '/example',
-      name: 'example',
-      component: Example
+      path: '/diagnosis',
+      name: 'diagnosis',
+      component: Diagnosis
     },
   ]
 })

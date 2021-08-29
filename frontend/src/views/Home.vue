@@ -16,14 +16,14 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   props: {
     msg: String
   },
   methods:{
     begin () {
       this.$router.push({
-        name: 'example',
+        name: 'diagnosis',
       })
     }
   }
