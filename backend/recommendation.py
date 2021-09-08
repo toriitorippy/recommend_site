@@ -9,16 +9,18 @@ class recommendArea:
         self.layout = int(data["answer"][-1])+1
 
     def calc_recommendation(self):
-        # 「空室率 * 幸福度」により'指標'を作成
-        indicator = self.vacancy_rate['全住宅空室率'].values * self.happiness.values.reshape(-1,)
-        indicator = pd.DataFrame({'指標': indicator})
-
         # 必要なDataFrameを結合
         data = pd.concat([self.vacancy_rate['区'], 
                           self.vacancy_rate['全住宅空室率'], 
                           self.rent.iloc[:, self.layout], 
-                          self.happiness,
-                          indicator], axis=1)
+                          self.happiness], axis=1)
+        
+        # 「重み付き空室率 * 幸福度」により'指標'を作成
+        data['重み付き空室率'] = data['全住宅空室率'].values / data.iloc[:, 2].values
+        data['重み付き空室率'] = (data['重み付き空室率'].values - data['重み付き空室率'].min()) / (data['重み付き空室率'].max() - data['重み付き空室率'].min())
+        data['重み付き空室率'] = data['重み付き空室率'].values * (data.iloc[:, 3].max() - data.iloc[:, 3].min()) + data.iloc[:, 3].min()
+        indicator = data['重み付き空室率'].values * data.iloc[:, 3].values
+        data['指標'] = indicator
         
         # 家賃の上限額でエリアを絞った上で,'指標'を基準に降順にソート
         data = data[data.iloc[:, 2] <= self.rent_lim].sort_values('指標', ascending=False)
