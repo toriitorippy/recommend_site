@@ -1,4 +1,5 @@
 import pandas as pd
+from scipy.stats import norm
 
 class recommendArea:
     def __init__(self, happiness, data):
@@ -29,3 +30,35 @@ class recommendArea:
         recommend_area = data['区'][:3].values
 
         return recommend_area
+
+    def show_pareto(self):
+        pareto = {
+            'area': self.vacancy_rate['区'].values.reshape(-1).tolist(),
+            'happiness': self.happiness.values.reshape(-1).tolist(),
+            'contract_rate': [],
+            'pareto_optimal_flag': []
+        }
+
+        # 家賃相場の値を平均,家賃相場の値の1/3を標準偏差とする正規分布に従うと仮定
+        mu = self.rent.iloc[:, self.layout].values.reshape(-1).tolist()
+        sigma = (self.rent.iloc[:, self.layout].values * (1/3)).reshape(-1).tolist()
+
+        # 上記正規分布における希望家賃額の値がとる確率密度と空室率との積を成約率とする
+        contract_rate = norm.pdf(self.rent_lim, mu, sigma) * self.vacancy_rate['全住宅空室率'].values
+        # 上記正規分布における希望家賃額の値がとる累積分布値と空室率との積を成約率とする
+        # contract_rate = norm.cdf(self.rent_lim, mu, sigma) * self.vacancy_rate['全住宅空室率'].values
+
+        # 成約率を0-10の値にスケーリング
+        contract_rate = (contract_rate - contract_rate.min()) * 10 / (contract_rate.max() - contract_rate.min())
+        pareto['contract_rate'] = contract_rate.reshape(-1).tolist()
+
+        # Pareto最適解ならTrueとするフラグ
+        for i in range(len(pareto['contract_rate'])):
+            flag_tmp = True
+            for j in range(len(pareto['contract_rate'])):
+                if pareto['happiness'][i] < pareto['happiness'][j] and pareto['contract_rate'][i] < pareto['contract_rate'][j]:
+                    flag_tmp = False
+                    break
+            pareto['pareto_optimal_flag'].append(flag_tmp)
+
+        return pareto

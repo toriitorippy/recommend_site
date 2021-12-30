@@ -3,3 +3,4 @@ Flask-cors
 Flask_restful
 pandas
 lightgbm
+scipy
