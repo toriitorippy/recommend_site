@@ -40,5 +40,18 @@ def get_recommend():
     return jsonify(response)
 
 
+@app.route('/get_pareto',methods=["POST"])
+def get_pareto():
+    data=request.get_json()
+    # data形式は以下
+    # {answer:["1","3","5","9",.....,"2"]}
+
+    happiness = calc_happiness(data) # 地域-幸福度配列を返す
+    recommend_area = recommendArea(happiness, data)
+    pareto = recommend_area.show_pareto()
+
+    return jsonify(pareto)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
