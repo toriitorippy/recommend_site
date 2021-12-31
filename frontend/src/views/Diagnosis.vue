@@ -349,7 +349,7 @@
           <div class="box"></div>
           </el-col>
           <el-col :span="10">
-            <TradeoffScatter :chart-data="datacollection"></TradeoffScatter>
+            <TradeoffScatter :chart-data="datacollection" :options="scatter_options"></TradeoffScatter>
             <el-button plain type="primary" round v-on:click="restart()"
               >戻る</el-button
             >
@@ -384,6 +384,7 @@ export default {
       nemu_active: '',
       result_active: '__hide',
       datacollection: null,
+      scatter_options: null,
       // 選択肢を列挙
       options: [
         [
@@ -597,26 +598,36 @@ export default {
             const area = data['area']
             const contract_rate = data['contract_rate']
             const happiness = data['happiness']
-            // const pareto_optimal_flag = data["pareto_optimal_flag"]
+            const pareto_optimal_flag = data["pareto_optimal_flag"]
             console.log(area.length)
             console.log(happiness)
             console.log(contract_rate)
             let add_data = this.datacollection.datasets[0].data
+            let add_data2 = this.datacollection.datasets[1].data
             for (let i = 0; i < area.length; i++) {
               let newPoint = {
                 x: happiness[i],
                 y: contract_rate[i]
               }
               // this.$store.commit('mutateScatterPlot', newPoint);
-              add_data.push(newPoint)
+              if (pareto_optimal_flag[i] == true){
+                add_data.push(newPoint)
+              } else {
+                add_data2.push(newPoint)
+              }
             }
             this.datacollection = {
               labels: [this.getRandomInt()],
               datasets: [
                 {
                   label: 'Data One',
-                  backgroundColor: '#f87979',
+                  backgroundColor: '#E53935',
                   data: add_data
+                },
+                {
+                  label: 'Data Two',
+                  backgroundColor: '#283593',
+                  data: add_data2
                 }
               ]
             }
@@ -630,8 +641,11 @@ export default {
         labels: [this.getRandomInt()],
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
+            backgroundColor: 'rgb(252, 209, 42,0)',
+            data: []
+          },
+          {
+            backgroundColor: 'rgb(17, 30, 108)',
             data: []
           }
           //  {
@@ -640,6 +654,27 @@ export default {
           //   data: [{ x: this.getRandomInt(),  y:  this.getRandomInt()}, { x: this.getRandomInt(),  y: this.getRandomInt()}]
           // }
         ]
+      },
+      this.scatter_options = {
+            legend: {
+        display: false
+    },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: "幸福度",
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: "成約率",
+            }
+          }],
+        },
       }
     },
     getRandomInt() {
