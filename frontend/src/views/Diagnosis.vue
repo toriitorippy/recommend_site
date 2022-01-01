@@ -1,12 +1,12 @@
 <template>
-  <el-container>
+  <b-container>
     <!--参考サイト：http://work2work.work/diagnosis/-->
     <div id="Diagnosis" class="Diagnosis">
       <h2 class="team text-left">KOKOSUMU</h2>
       <div class="menubox" v-bind:class="nemu_active">
         <div>
+        <el-card class="box-card">
           <div class="menuItem" key="1" v-if="current_num == 0">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q1.通勤通学エリアはどこですか？</span>
               </div>
@@ -27,13 +27,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_city_driver_re_0x5e.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="2" v-if="current_num == 1">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q2.世帯年収はいくらですか？</span>
               </div>
@@ -54,13 +52,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Savings_re_eq4w.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="3" v-if="current_num == 2">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q3.ご職業はなんですか？</span>
               </div>
@@ -81,13 +77,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Updated_resume_re_q1or.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="4" v-if="current_num == 3">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q4.希望の住宅の大きさは？</span>
               </div>
@@ -108,13 +102,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_houses3_xwf7.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="5" v-if="current_num == 4">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q5.所有資産は？</span>
               </div>
@@ -135,13 +127,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Vault_re_s4my.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="6" v-if="current_num == 5">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q6.個人年収は？</span>
               </div>
@@ -162,13 +152,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_personal_finance_tqcd.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="7" v-if="current_num == 6">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q7.お子さんはいますか？</span>
               </div>
@@ -189,13 +177,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_doll_play_evbw.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="8" v-if="current_num == 7">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt"
                   >Q8.家族と過ごす時間をなるべく多くしたい？</span
@@ -218,13 +204,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Chilling_re_4iq9.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="9" v-if="current_num == 8">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q9.休みの日には家族そろって出かける？</span>
               </div>
@@ -245,13 +229,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Outdoor_adventure_re_j3b7.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="10" v-if="current_num == 9">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt"
                   >Q10.休日にはそろって出かけるような、仲の良い家族が望ましい？</span
@@ -274,13 +256,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_fatherhood_7i19.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="11" v-if="current_num == 10">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q11.希望の家賃額は？</span>
               </div>
@@ -298,13 +278,11 @@
               <img
                 class="img"
                 src="../assets/images/undraw_Site_stats_re_ejgy.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
 
           <div class="menuItem" key="12" v-if="current_num == 11">
-            <el-card class="box-card">
               <div class="menuttl">
                 <span class="txt">Q12.希望の間取りは？</span>
               </div>
@@ -325,10 +303,10 @@
               <img
                 class="img"
                 src="../assets/images/undraw_select_house_qbag.png"
-                style="width: 50%"
+                style="display: block; margin: auto; width: 50%"
               />
-            </el-card>
           </div>
+          </el-card>
         </div>
       </div>
       <div class="result" v-bind:class="result_active">
@@ -340,25 +318,35 @@
       <h2>{{ result2 }}</h2>
       <h3>{{ result3 }}</h3>-->
         <el-row>
-        <el-col :span="8">
-          <img
-            class="img"
-            src="../assets/images/undraw_Ordinary_day_re_v5hy.png"
-            style="width: 100%"
-          />
-          <div class="box"></div>
+          <el-col :span="10">
+            <h3>住みやすい街を</h3>
+            <h3>チェックしましょう</h3>
+            <img
+              class="img"
+              src="../assets/images/undraw_Ordinary_day_re_v5hy.png"
+              style="width: 100%"
+            />
+            <div class="box"></div>
+            <el-button plain type="primary" v-on:click="downloadCSV">
+              ダウンロード
+            </el-button>
+            <div class="box"></div>
           </el-col>
           <el-col :span="10">
-            <TradeoffScatter :chart-data="datacollection" :options="scatter_options"></TradeoffScatter>
-            <el-button plain type="primary" round v-on:click="restart()"
-              >戻る</el-button
-            >
+            <TradeoffScatter
+              :chart-data="datacollection"
+              :options="scatter_options"
+            ></TradeoffScatter>
           </el-col>
         </el-row>
         <div class="box"></div>
+        <el-button plain type="primary" round v-on:click="restart()"
+          >戻る</el-button
+        >
+        <div class="box"></div>
       </div>
     </div>
-  </el-container>
+  </b-container>
 </template>
 
 <script>
@@ -375,6 +363,7 @@ export default {
   },
   data() {
     return {
+      items: [],
       answer: [],
       result: { 0: { area: '港区' }, 1: { area: '港区' }, 2: { area: '港区' } },
       result1: '',
@@ -561,6 +550,27 @@ export default {
     this.fillData()
   },
   methods: {
+    downloadCSV() {
+      console.log(this.items)
+      var csv = '\ufeff' + 'area,happiness,contract_rate,pareto_optimal_flag\n'
+      this.items.forEach(el => {
+        var line =
+          el['area'] +
+          ',' +
+          el['happiness'] +
+          ',' +
+          el['contract_rate'] +
+          ',' +
+          el['pareto_optimal_flag'] +
+          '\n'
+        csv += line
+      })
+      let blob = new Blob([csv], { type: 'text/csv' })
+      let link = document.createElement('a')
+      link.href = window.URL.createObjectURL(blob)
+      link.download = 'Result.csv'
+      link.click()
+    },
     next() {
       if (!(this.current_num == 10)) {
         //10番目の質問は数値なのでスキップ
@@ -598,19 +608,25 @@ export default {
             const area = data['area']
             const contract_rate = data['contract_rate']
             const happiness = data['happiness']
-            const pareto_optimal_flag = data["pareto_optimal_flag"]
+            const pareto_optimal_flag = data['pareto_optimal_flag']
             console.log(area.length)
             console.log(happiness)
             console.log(contract_rate)
             let add_data = this.datacollection.datasets[0].data
             let add_data2 = this.datacollection.datasets[1].data
             for (let i = 0; i < area.length; i++) {
+              this.items.push({
+                area: area[i],
+                happiness: happiness[i],
+                contract_rate: contract_rate[i],
+                pareto_optimal_flag: pareto_optimal_flag[i]
+              })
               let newPoint = {
                 x: happiness[i],
                 y: contract_rate[i]
               }
               // this.$store.commit('mutateScatterPlot', newPoint);
-              if (pareto_optimal_flag[i] == true){
+              if (pareto_optimal_flag[i] == true) {
                 add_data.push(newPoint)
               } else {
                 add_data2.push(newPoint)
@@ -630,6 +646,52 @@ export default {
                   data: add_data2
                 }
               ]
+            }
+            this.scatter_options = {
+              legend: {
+                display: false
+              },
+              scales: {
+                xAxes: [
+                  {
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: '幸福度'
+                    }
+                  }
+                ],
+                yAxes: [
+                  {
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: '成約率'
+                    }
+                  }
+                ]
+              },
+              tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label
+                    var d = data.datasets[tooltipItem.datasetIndex].data
+
+                    var total = Number(0)
+                    d.forEach(function(q) {
+                      total = total + q
+                    })
+                    console.log(label)
+                    var labelText = area[tooltipItem.index]
+                    labelText +=
+                      ' \n  幸福度：' +
+                      String(happiness[tooltipItem.index]) +
+                      ' \n 成約率：' +
+                      String(contract_rate[tooltipItem.index])
+                    return labelText
+                  }
+                }
+              }
             }
             this.nemu_active = '__hide'
             this.result_active = '__active'
@@ -654,27 +716,6 @@ export default {
           //   data: [{ x: this.getRandomInt(),  y:  this.getRandomInt()}, { x: this.getRandomInt(),  y: this.getRandomInt()}]
           // }
         ]
-      },
-      this.scatter_options = {
-            legend: {
-        display: false
-    },
-        scales: {
-          xAxes: [{
-            display: true,
-            scaleLabel: {
-              display: true,
-              labelString: "幸福度",
-            }
-          }],
-          yAxes: [{
-            display: true,
-            scaleLabel: {
-              display: true,
-              labelString: "成約率",
-            }
-          }],
-        },
       }
     },
     getRandomInt() {
