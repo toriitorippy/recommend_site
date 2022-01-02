@@ -352,6 +352,7 @@
 <script>
 import axios from 'axios'
 import TradeoffScatter from '../components/tradeoff/TradeoffScatter'
+import {API_BASE_URI} from '../../util/const.js'
 
 export default {
   name: 'Diagnosis',
@@ -582,8 +583,9 @@ export default {
       this.current_num += 1
       console.log(this.answer)
       if (this.current_num == 12) {
+        let backend_url = API_BASE_URI + '/get_pareto'
         axios
-          .post('http://localhost:5000/get_pareto', { answer: this.answer })
+          .post(backend_url, { answer: this.answer })
           .then(res => {
             console.log(res)
             // this.nemu_active = '__hide';
