@@ -611,11 +611,10 @@ export default {
             const contract_rate = data['contract_rate']
             const happiness = data['happiness']
             const pareto_optimal_flag = data['pareto_optimal_flag']
-            console.log(area.length)
-            console.log(happiness)
-            console.log(contract_rate)
             let add_data = this.datacollection.datasets[0].data
             let add_data2 = this.datacollection.datasets[1].data
+            let data_one_index = []
+            let data_two_index = []
             for (let i = 0; i < area.length; i++) {
               this.items.push({
                 area: area[i],
@@ -630,8 +629,10 @@ export default {
               // this.$store.commit('mutateScatterPlot', newPoint);
               if (pareto_optimal_flag[i] == true) {
                 add_data.push(newPoint)
+                data_one_index.push(i)
               } else {
                 add_data2.push(newPoint)
+                data_two_index.push(i)
               }
             }
             this.datacollection = {
@@ -676,20 +677,27 @@ export default {
               tooltips: {
                 callbacks: {
                   label: function(tooltipItem, data) {
-                    var label = data.datasets[tooltipItem.datasetIndex].label
-                    var d = data.datasets[tooltipItem.datasetIndex].data
-
-                    var total = Number(0)
-                    d.forEach(function(q) {
-                      total = total + q
-                    })
-                    console.log(label)
-                    var labelText = area[tooltipItem.index]
-                    labelText +=
-                      ' \n  幸福度：' +
-                      String(happiness[tooltipItem.index]) +
-                      ' \n 成約率：' +
-                      String(contract_rate[tooltipItem.index])
+                    console.log(data)
+                    var tool_index = tooltipItem.index
+                    var labelText = ""
+                    if (tool_index < data_one_index.length) {
+                      let label_index = data_one_index[tool_index]
+                      labelText += area[label_index]
+                      labelText +=
+                        ' \n  幸福度：' +
+                        String(happiness[label_index]) +
+                        ' \n 成約率：' +
+                        String(contract_rate[label_index])
+                    } else {
+                      let label_index = data_two_index[tool_index + data_one_index.length]
+                      labelText += area[label_index]
+                      labelText +=
+                        ' \n  幸福度：' +
+                        String(happiness[label_index]) +
+                        ' \n 成約率：' +
+                        String(contract_rate[label_index])
+                    }
+                    
                     return labelText
                   }
                 }
@@ -712,11 +720,6 @@ export default {
             backgroundColor: 'rgb(17, 30, 108)',
             data: []
           }
-          //  {
-          //   label: 'Data One',
-          //   backgroundColor: '#f87979',
-          //   data: [{ x: this.getRandomInt(),  y:  this.getRandomInt()}, { x: this.getRandomInt(),  y: this.getRandomInt()}]
-          // }
         ]
       }
     },
