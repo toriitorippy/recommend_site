@@ -1,12 +1,13 @@
 module.exports = {
     assetsDir: 'static',
     devServer: {
-      port: 80,
+      port: 8080,
       host: '0.0.0.0',
       disableHostCheck: true,
     },
-    assetsDir: "static",
+    // assetsDir: "",
     // publicPath: '/recommend_site', 
     // outputDir: "docs",
+    // assetsDir: "static"
   };
   
