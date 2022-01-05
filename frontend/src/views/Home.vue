@@ -5,7 +5,7 @@
       <h1>KOKOSUMU</h1>
       <div class="box"></div>
       <p>住む地域レコメンドアプリ</p>
-      <p>あなた嗜好に合わせて住みごごちのいい街を紹介します！</p>
+      <p>あなた嗜好に合わせて住みごごちのいい街をシミュレーションします！</p>
       <div class="box"></div>
       <el-button plain type="primary" round v-on:click="begin()">Start</el-button>
     </div>

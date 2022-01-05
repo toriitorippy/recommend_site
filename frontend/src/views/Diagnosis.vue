@@ -5,8 +5,8 @@
       <h2 class="team text-left">KOKOSUMU</h2>
       <div class="menubox" v-bind:class="nemu_active">
         <div>
-        <el-card class="box-card">
-          <div class="menuItem" key="1" v-if="current_num == 0">
+          <el-card class="box-card">
+            <div class="menuItem" key="1" v-if="current_num == 0">
               <div class="menuttl">
                 <span class="txt">Q1.通勤通学エリアはどこですか？</span>
               </div>
@@ -29,9 +29,9 @@
                 src="../assets/images/undraw_city_driver_re_0x5e.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="2" v-if="current_num == 1">
+            <div class="menuItem" key="2" v-if="current_num == 1">
               <div class="menuttl">
                 <span class="txt">Q2.世帯年収はいくらですか？</span>
               </div>
@@ -54,9 +54,9 @@
                 src="../assets/images/undraw_Savings_re_eq4w.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="3" v-if="current_num == 2">
+            <div class="menuItem" key="3" v-if="current_num == 2">
               <div class="menuttl">
                 <span class="txt">Q3.ご職業はなんですか？</span>
               </div>
@@ -79,9 +79,9 @@
                 src="../assets/images/undraw_Updated_resume_re_q1or.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="4" v-if="current_num == 3">
+            <div class="menuItem" key="4" v-if="current_num == 3">
               <div class="menuttl">
                 <span class="txt">Q4.希望の住宅の大きさは？</span>
               </div>
@@ -104,9 +104,9 @@
                 src="../assets/images/undraw_houses3_xwf7.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="5" v-if="current_num == 4">
+            <div class="menuItem" key="5" v-if="current_num == 4">
               <div class="menuttl">
                 <span class="txt">Q5.所有資産は？</span>
               </div>
@@ -129,9 +129,9 @@
                 src="../assets/images/undraw_Vault_re_s4my.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="6" v-if="current_num == 5">
+            <div class="menuItem" key="6" v-if="current_num == 5">
               <div class="menuttl">
                 <span class="txt">Q6.個人年収は？</span>
               </div>
@@ -154,9 +154,9 @@
                 src="../assets/images/undraw_personal_finance_tqcd.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="7" v-if="current_num == 6">
+            <div class="menuItem" key="7" v-if="current_num == 6">
               <div class="menuttl">
                 <span class="txt">Q7.お子さんはいますか？</span>
               </div>
@@ -179,9 +179,9 @@
                 src="../assets/images/undraw_doll_play_evbw.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="8" v-if="current_num == 7">
+            <div class="menuItem" key="8" v-if="current_num == 7">
               <div class="menuttl">
                 <span class="txt"
                   >Q8.家族と過ごす時間をなるべく多くしたい？</span
@@ -206,9 +206,9 @@
                 src="../assets/images/undraw_Chilling_re_4iq9.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="9" v-if="current_num == 8">
+            <div class="menuItem" key="9" v-if="current_num == 8">
               <div class="menuttl">
                 <span class="txt">Q9.休みの日には家族そろって出かける？</span>
               </div>
@@ -231,9 +231,9 @@
                 src="../assets/images/undraw_Outdoor_adventure_re_j3b7.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="10" v-if="current_num == 9">
+            <div class="menuItem" key="10" v-if="current_num == 9">
               <div class="menuttl">
                 <span class="txt"
                   >Q10.休日にはそろって出かけるような、仲の良い家族が望ましい？</span
@@ -258,9 +258,9 @@
                 src="../assets/images/undraw_fatherhood_7i19.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="11" v-if="current_num == 10">
+            <div class="menuItem" key="11" v-if="current_num == 10">
               <div class="menuttl">
                 <span class="txt">Q11.希望の家賃額は？</span>
               </div>
@@ -280,9 +280,9 @@
                 src="../assets/images/undraw_Site_stats_re_ejgy.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
 
-          <div class="menuItem" key="12" v-if="current_num == 11">
+            <div class="menuItem" key="12" v-if="current_num == 11">
               <div class="menuttl">
                 <span class="txt">Q12.希望の間取りは？</span>
               </div>
@@ -305,7 +305,7 @@
                 src="../assets/images/undraw_select_house_qbag.png"
                 style="display: block; margin: auto; width: 50%"
               />
-          </div>
+            </div>
           </el-card>
         </div>
       </div>
@@ -317,32 +317,41 @@
       <h1>{{ result1 }}</h1>
       <h2>{{ result2 }}</h2>
       <h3>{{ result3 }}</h3>-->
-        <el-row>
-          <el-col :span="10">
-            <h3>住みやすい街を</h3>
-            <h3>チェックしましょう</h3>
-            <img
-              class="img"
-              src="../assets/images/undraw_Ordinary_day_re_v5hy.png"
-              style="width: 100%"
-            />
-            <div class="box"></div>
-            <el-button plain type="primary" v-on:click="downloadCSV">
-              ダウンロード
-            </el-button>
-            <div class="box"></div>
-          </el-col>
-          <el-col :span="10">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <h3 class="text-left">住みやすい街を</h3>
+              <h3 class="text-left">チェックしましょう</h3>
+              <p class="text-left">
+                右図はアンケートにより算出された、対象の地域に住んだ時の将来的な幸福度およびその地域を選んだ時に希望の物件が見つかる可能性である成約率の散布図です。
+              </p>
+              <p class="text-left">
+                右上が理想的な地域で、赤い点がパレート解(理想的な解に近いもの）です。
+              </p>
+              <img
+                src="../assets/images/undraw_Ordinary_day_re_v5hy.png"
+                style="width: 80%"
+              />
+              <el-button plain type="primary" v-on:click="downloadCSV">
+                ダウンロード
+              </el-button>
+              <div class="box"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
             <TradeoffScatter
               :chart-data="datacollection"
               :options="scatter_options"
             ></TradeoffScatter>
-          </el-col>
-        </el-row>
+          </div>
+        </div>
         <div class="box"></div>
         <el-button plain type="primary" round v-on:click="restart()"
           >戻る</el-button
         >
+        <el-button plain type="primary" round v-on:click="locate()">
+          アンケートはこちら
+        </el-button>
         <div class="box"></div>
       </div>
     </div>
@@ -352,7 +361,7 @@
 <script>
 import axios from 'axios'
 import TradeoffScatter from '../components/tradeoff/TradeoffScatter'
-import {API_BASE_URI} from '../../util/const.js'
+import { API_BASE_URI } from '../../util/const.js'
 
 export default {
   name: 'Diagnosis',
@@ -572,6 +581,9 @@ export default {
       link.download = 'Result.csv'
       link.click()
     },
+    locate: function() {
+      location.href = 'https://forms.gle/n6YQjg8ob2ZiHXdq5'
+    },
     next() {
       if (!(this.current_num == 10)) {
         //10番目の質問は数値なのでスキップ
@@ -584,128 +596,128 @@ export default {
       console.log(this.answer)
       if (this.current_num == 12) {
         let backend_url = API_BASE_URI + '/get_pareto'
-        axios
-          .post(backend_url, { answer: this.answer })
-          .then(res => {
-            console.log(res)
-            // this.nemu_active = '__hide';
-            // this.result_active = '__active';
-            // const data = res.data;
-            // console.log(data)
-            // this.result = data
-            // if (data[0]) {
-            //   this.result1 = "第1位 " + data[0]['area']
-            // }
-            // if (data[1]) {
-            //   this.result2 = "第2位 " +  data[1]['area']
-            // }
-            // if (data[2]) {
-            //   this.result3 = "第3位 " + data[2]['area']
-            // }
-            // if (!data[0]) {
-            //   this.result1 = "おすすめの地域はありません" //データがなかった場合
-            // }
-            const data = res.data
-            console.log(data)
-            const area = data['area']
-            const contract_rate = data['contract_rate']
-            const happiness = data['happiness']
-            const pareto_optimal_flag = data['pareto_optimal_flag']
-            let add_data = this.datacollection.datasets[0].data
-            let add_data2 = this.datacollection.datasets[1].data
-            let data_one_index = []
-            let data_two_index = []
-            for (let i = 0; i < area.length; i++) {
-              this.items.push({
-                area: area[i],
-                happiness: happiness[i],
-                contract_rate: contract_rate[i],
-                pareto_optimal_flag: pareto_optimal_flag[i]
-              })
-              let newPoint = {
-                x: happiness[i],
-                y: contract_rate[i]
-              }
-              // this.$store.commit('mutateScatterPlot', newPoint);
-              if (pareto_optimal_flag[i] == true) {
-                add_data.push(newPoint)
-                data_one_index.push(i)
-              } else {
-                add_data2.push(newPoint)
-                data_two_index.push(i)
-              }
+        axios.post(backend_url, { answer: this.answer }).then(res => {
+          console.log(res)
+          // this.nemu_active = '__hide';
+          // this.result_active = '__active';
+          // const data = res.data;
+          // console.log(data)
+          // this.result = data
+          // if (data[0]) {
+          //   this.result1 = "第1位 " + data[0]['area']
+          // }
+          // if (data[1]) {
+          //   this.result2 = "第2位 " +  data[1]['area']
+          // }
+          // if (data[2]) {
+          //   this.result3 = "第3位 " + data[2]['area']
+          // }
+          // if (!data[0]) {
+          //   this.result1 = "おすすめの地域はありません" //データがなかった場合
+          // }
+          const data = res.data
+          console.log(data)
+          const area = data['area']
+          const contract_rate = data['contract_rate']
+          const happiness = data['happiness']
+          const pareto_optimal_flag = data['pareto_optimal_flag']
+          let add_data = this.datacollection.datasets[0].data
+          let add_data2 = this.datacollection.datasets[1].data
+          let data_one_index = []
+          let data_two_index = []
+          for (let i = 0; i < area.length; i++) {
+            this.items.push({
+              area: area[i],
+              happiness: happiness[i],
+              contract_rate: contract_rate[i],
+              pareto_optimal_flag: pareto_optimal_flag[i]
+            })
+            let newPoint = {
+              x: happiness[i],
+              y: contract_rate[i]
             }
-            this.datacollection = {
-              labels: [this.getRandomInt()],
-              datasets: [
+            // this.$store.commit('mutateScatterPlot', newPoint);
+            if (pareto_optimal_flag[i] == true) {
+              add_data.push(newPoint)
+              data_one_index.push(i)
+            } else {
+              add_data2.push(newPoint)
+              data_two_index.push(i)
+            }
+          }
+          this.datacollection = {
+            labels: [this.getRandomInt()],
+            datasets: [
+              {
+                label: 'Data One',
+                backgroundColor: '#E53935',
+                data: add_data
+              },
+              {
+                label: 'Data Two',
+                backgroundColor: '#283593',
+                data: add_data2
+              }
+            ]
+          }
+          this.scatter_options = {
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [
                 {
-                  label: 'Data One',
-                  backgroundColor: '#E53935',
-                  data: add_data
-                },
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: '幸福度'
+                  }
+                }
+              ],
+              yAxes: [
                 {
-                  label: 'Data Two',
-                  backgroundColor: '#283593',
-                  data: add_data2
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: '成約率'
+                  }
                 }
               ]
-            }
-            this.scatter_options = {
-              legend: {
-                display: false
-              },
-              scales: {
-                xAxes: [
-                  {
-                    display: true,
-                    scaleLabel: {
-                      display: true,
-                      labelString: '幸福度'
-                    }
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  console.log(data)
+                  console.log(tooltipItem)
+                  var datasets_index = tooltipItem.datasets_index
+                  var tool_index = tooltipItem.index
+                  var labelText = ''
+                  let label_index = 0
+                  if (datasets_index == 0) {
+                    label_index = data_one_index[tool_index]
+                    labelText += area[label_index]
+                    labelText +=
+                      ' \n  幸福度：' +
+                      String(happiness[label_index]) +
+                      ' \n 成約率：' +
+                      String(contract_rate[label_index])
+                  } else {
+                    label_index = data_two_index[tool_index]
+                    labelText += area[label_index]
+                    labelText +=
+                      ' \n  幸福度：' +
+                      String(happiness[label_index]) +
+                      ' \n 成約率：' +
+                      String(contract_rate[label_index])
                   }
-                ],
-                yAxes: [
-                  {
-                    display: true,
-                    scaleLabel: {
-                      display: true,
-                      labelString: '成約率'
-                    }
-                  }
-                ]
-              },
-              tooltips: {
-                callbacks: {
-                  label: function(tooltipItem, data) {
-                    console.log(data)
-                    var tool_index = tooltipItem.index
-                    var labelText = ""
-                    if (tool_index < data_one_index.length) {
-                      let label_index = data_one_index[tool_index]
-                      labelText += area[label_index]
-                      labelText +=
-                        ' \n  幸福度：' +
-                        String(happiness[label_index]) +
-                        ' \n 成約率：' +
-                        String(contract_rate[label_index])
-                    } else {
-                      let label_index = data_two_index[tool_index + data_one_index.length]
-                      labelText += area[label_index]
-                      labelText +=
-                        ' \n  幸福度：' +
-                        String(happiness[label_index]) +
-                        ' \n 成約率：' +
-                        String(contract_rate[label_index])
-                    }
-                    
-                    return labelText
-                  }
+                  return labelText
                 }
               }
             }
-            this.nemu_active = '__hide'
-            this.result_active = '__active'
-          })
+          }
+          this.nemu_active = '__hide'
+          this.result_active = '__active'
+        })
       }
     },
     fillData() {
