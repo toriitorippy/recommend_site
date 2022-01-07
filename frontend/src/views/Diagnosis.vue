@@ -262,7 +262,7 @@
 
             <div class="menuItem" key="11" v-if="current_num == 10">
               <div class="menuttl">
-                <span class="txt">Q11.希望の家賃額は？</span>
+                <span class="txt">Q11.希望の家賃額は？（単位は万円、数字のみでお答えください）</span>
               </div>
               <div class="menuRadio">
                 <el-input
@@ -689,13 +689,17 @@ export default {
                 label: function(tooltipItem, data) {
                   console.log(data)
                   console.log(tooltipItem)
-                  var datasets_index = tooltipItem.datasets_index
+                  console.log(data_one_index)
+                  console.log(data_two_index)
+                  var datasets_index = tooltipItem.datasetIndex
                   var tool_index = tooltipItem.index
                   var labelText = ''
                   let label_index = 0
+                  console.log(datasets_index)
                   if (datasets_index == 0) {
                     label_index = data_one_index[tool_index]
                     labelText += area[label_index]
+                    console.log(label_index)
                     labelText +=
                       ' \n  幸福度：' +
                       String(happiness[label_index]) +
